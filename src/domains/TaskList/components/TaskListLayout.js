@@ -10,13 +10,10 @@ const TaskListLayout = () => {
   return (
     <div style={{ height: '100%' }}>
       <div style={{ display: 'flex', height: '100%' }}>
-        <Col
-          cw={12}
-          span={4}
-          style={{ backgroundColor: 'grey', width: '100%' }}>
+        <Col cw={12} span={4} style={{ backgroundColor: 'grey', width: '100%' }}>
           <TaskList taskLists={store} setCurrentList={setCurrentList} />
         </Col>
-        <Col cw={12} span={20} style={{ backgroundColor: '#D4D4D4' }}>
+        <Col cw={12} span={20} style={{ backgroundColor: '#D4D4D4', paddingTop: '10px' }}>
           <TaskListAdvancedView taskList={currentList} />
         </Col>
       </div>

@@ -29,21 +29,11 @@ const AddTaskInput = ({ visible }) => {
         justifyContent: 'space-between',
         alignItems: 'center',
       }}>
-      <div>
-        <Input
-          value={inputValue}
-          onChange={onInputChange}
-          placeholder="Enter tasks list name"
-        />
+      <div style={{ width: '100%' }}>
+        <Input value={inputValue} onChange={onInputChange} placeholder="Enter tasks list name" />
       </div>
       <div style={{ marginLeft: '5px' }}>
-        <Button
-          type="primary"
-          shape="circle"
-          icon={<PlusOutlined />}
-          size={'small'}
-          onClick={onApplyButtonClick}
-        />
+        <Button type="primary" shape="circle" icon={<PlusOutlined />} size={'small'} onClick={onApplyButtonClick} />
       </div>
     </div>
   ) : (

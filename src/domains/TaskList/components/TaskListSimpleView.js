@@ -15,13 +15,11 @@ const styles = {
 const TaskListSimpleView = ({ item, setCurrentItem }) => {
   return (
     <div style={styles} onClick={() => setCurrentItem(item)}>
-      <div>
-        <UnorderedListOutlined color="white" />
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <UnorderedListOutlined style={{ color: 'white' }} />
+        <div style={{ color: 'white', marginLeft: '5px' }}>{item.name}</div>
       </div>
-      <div style={{ color: 'white', marginLeft: '5px' }}>{item.name}</div>
-      <div style={{ color: 'whitesmoke', marginLeft: '15px' }}>
-        {item.tasks?.length}
-      </div>
+      <div style={{ color: '#9C9C9C', marginLeft: '15px' }}>{item.tasks?.length}</div>
     </div>
   )
 }

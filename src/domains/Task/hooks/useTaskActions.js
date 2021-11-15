@@ -1,13 +1,10 @@
-const useTaskActions = (
-  taskData,
-  setTaskData,
-  taskList,
-  updateTaskList,
-  setInputValue
-) => {
+import nextId from 'react-id-generator'
+
+const useTaskActions = (taskData, setTaskData, taskList, updateTaskList, setInputValue) => {
   const onChangeInput = e => {
+    const id = nextId()
     const name = e.currentTarget.value
-    setTaskData({ ...taskData, name })
+    setTaskData({ ...taskData, name, id })
     setInputValue(e.currentTarget.value)
   }
 

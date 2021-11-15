@@ -30,20 +30,10 @@ const TaskSimpleForm = ({ visible, taskList }) => {
         alignItems: 'center',
       }}>
       <div style={{ marginRight: '5px' }}>
-        <Input
-          value={inputValue}
-          onChange={onChangeInput}
-          placeholder="Enter task name"
-        />
+        <Input value={inputValue} onChange={onChangeInput} placeholder="Enter task name" />
       </div>
       <div>
-        <Button
-          type="primary"
-          shape="circle"
-          icon={<PlusOutlined />}
-          size={'small'}
-          onClick={onSubmitButtonClick}
-        />
+        <Button type="primary" shape="circle" icon={<PlusOutlined />} size={'small'} onClick={onSubmitButtonClick} />
       </div>
     </div>
   ) : (
