@@ -1,5 +1,7 @@
 export { default as useStore } from './useStore'
 export { default as useCreateTaskList } from './useCreateTaskList'
-export { default as useUpdateTaskList } from './useUpdateTaskList'
+export { default as useCreateTask } from './useCreateTask'
 export { default as useUpdateTask } from './useUpdateTask'
 export { default as useDeleteTask } from './useDeleteTask'
+export { default as useDeleteTaskList } from './useDeleteTaskList'
+export { default as useUpdateTaskList } from './useUpdateTaskList'

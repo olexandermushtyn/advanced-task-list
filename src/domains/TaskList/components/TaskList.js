@@ -1,15 +1,8 @@
 import { List } from '../../../componentns'
 import { TaskListSimpleView, TaskListSimpleForm } from '.'
+import { useTaskListStyles } from '../hooks'
 
-const styles = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  alignItems: 'flex-start',
-  marginLeft: '10px',
-  padding: '10px',
-  height: '100%',
-}
+const { wrapperStyles } = useTaskListStyles
 
 const TaskList = ({ setCurrentList, taskLists, setTaskLists }) => {
   const addTask = task => {
@@ -17,7 +10,7 @@ const TaskList = ({ setCurrentList, taskLists, setTaskLists }) => {
   }
 
   return (
-    <div style={styles}>
+    <div style={wrapperStyles}>
       <div style={{ width: '100%', paddingRight: '15px' }}>
         <h1 style={{ color: '#E4E4DD' }}>Tasks Lists</h1>
         <List collection={taskLists} Item={TaskListSimpleView} setCurrentItem={setCurrentList} />

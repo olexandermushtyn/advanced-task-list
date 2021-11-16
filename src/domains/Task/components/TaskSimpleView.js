@@ -1,6 +1,7 @@
 import { Checkbox, Input } from 'antd'
 import { useState } from 'react'
 import { useStore } from '../../../contexts/TaskListContext/hooks'
+import { useSimpleViewActions } from '../hooks'
 import TaskEditBlock from './TaskEditBlock'
 
 const TaskSimpleView = ({ item, parent }) => {
@@ -10,16 +11,14 @@ const TaskSimpleView = ({ item, parent }) => {
   const [isEdited, setIsEdited] = useState(false)
   const [editedText, setEditedText] = useState(item.name)
 
-  const onCheckedChange = () => {
-    setChecked(!checked)
-    const newTask = { ...item }
-    newTask.done = !checked
-    updateTask(parent, item, newTask)
-  }
-
-  const onInputTextChange = e => {
-    setEditedText(e.currentTarget.value)
-  }
+  const { onCheckedChange, onInputTextChange } = useSimpleViewActions(
+    checked,
+    setChecked,
+    updateTask,
+    parent,
+    item,
+    setEditedText
+  )
 
   return (
     <div
@@ -43,7 +42,9 @@ const TaskSimpleView = ({ item, parent }) => {
             onChange={onInputTextChange}
           />
         ) : (
-          <div style={item.done ? { textDecoration: 'line-through', marginBottom: '1px' } : {}}>{item.name}</div>
+          <div style={item.done ? { textDecoration: 'line-through', marginBottom: '1px' } : {}}>
+            {item.name}
+          </div>
         )}
 
         <TaskEditBlock

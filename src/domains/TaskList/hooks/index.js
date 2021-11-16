@@ -1,3 +1,6 @@
 export { default as useCurrentList } from './useCurrentList'
 export { default as useTaskListFormActions } from './useTaskListFormActions'
 export { default as useAdvancedViewStyles } from './useAdvancedViewStyles'
+export { default as useSimpleViewStyles } from './useSimpleViewStyles'
+export { default as useSimpleViewActions } from './useSimpleViewActions'
+export { default as useTaskListStyles } from './useTaskListStyles'

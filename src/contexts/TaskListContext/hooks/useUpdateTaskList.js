@@ -1,8 +1,8 @@
 const useUpdateTaskList = (store, dispatch) => {
-  const updateTaskList = (taskList, task) => {
-    const index = store.indexOf(taskList)
+  const updateTaskList = (taskList, updatedTaskList) => {
     const storeCopy = [...store]
-    storeCopy[index].tasks = [...store[index].tasks, task]
+    const indexOfUpdatedElement = storeCopy.indexOf(taskList)
+    storeCopy[indexOfUpdatedElement] = updatedTaskList
     dispatch({
       type: 'updateTaskList',
       payload: storeCopy,

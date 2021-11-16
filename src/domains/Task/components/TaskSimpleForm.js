@@ -13,13 +13,13 @@ const TaskSimpleForm = ({ visible, taskList }) => {
   })
   const [inputValue, setInputValue] = useState('')
 
-  const { updateTaskList } = useStore()
+  const { createTask } = useStore()
 
   const { onChangeInput, onSubmitButtonClick } = useTaskActions(
     taskData,
     setTaskData,
     taskList,
-    updateTaskList,
+    createTask,
     setInputValue
   )
 
@@ -33,7 +33,13 @@ const TaskSimpleForm = ({ visible, taskList }) => {
         <Input value={inputValue} onChange={onChangeInput} placeholder="Enter task name" />
       </div>
       <div>
-        <Button type="primary" shape="circle" icon={<PlusOutlined />} size={'small'} onClick={onSubmitButtonClick} />
+        <Button
+          type="primary"
+          shape="circle"
+          icon={<PlusOutlined />}
+          size={'small'}
+          onClick={onSubmitButtonClick}
+        />
       </div>
     </div>
   ) : (
