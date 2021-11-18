@@ -8,7 +8,7 @@ const List = ({ collection, Item, setCurrentItem, parent }) => {
       ))}
     </div>
   ) : (
-    <h2 style={{ color: '#BDBDBD' }}>List is empty</h2>
+    <></>
   )
 }
 

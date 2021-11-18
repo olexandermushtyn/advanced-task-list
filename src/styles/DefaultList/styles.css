@@ -1,0 +1,28 @@
+.default-list {
+    display: flex;
+    background-color: #655f62;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.default-list-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+}
+
+.default-list-item-title{
+    font-size: 18px;
+    margin-bottom: 0px;
+    color: #b2afb0;
+    font-weight: bold;
+}
+
+.default-list-item-number{
+    font-size: 24px;
+    margin-bottom: 0px;
+    color: #b2afb0;
+    font-weight: bold;
+}

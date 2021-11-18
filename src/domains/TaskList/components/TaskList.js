@@ -2,18 +2,29 @@ import { List } from '../../../componentns'
 import { TaskListSimpleView, TaskListSimpleForm } from '.'
 import { useTaskListStyles } from '../hooks'
 
-const { wrapperStyles } = useTaskListStyles
-
 const TaskList = ({ setCurrentList, taskLists, setTaskLists }) => {
   const addTask = task => {
     setTaskLists([...taskLists, task])
   }
 
+  const { wrapperStyles } = useTaskListStyles()
+
   return (
     <div style={wrapperStyles}>
-      <div style={{ width: '100%', paddingRight: '15px' }}>
-        <h1 style={{ color: '#E4E4DD' }}>Tasks Lists</h1>
-        <List collection={taskLists} Item={TaskListSimpleView} setCurrentItem={setCurrentList} />
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          height: '100%',
+        }}>
+        <div>
+          <h4 style={{ color: '#8d878a', marginLeft: '10px', marginTop: '10px', marginBottom: '0px' }}>
+            My tasks Lists
+          </h4>
+          <List collection={taskLists} Item={TaskListSimpleView} setCurrentItem={setCurrentList} />
+        </div>
         <div>
           <TaskListSimpleForm setTaskLists={addTask} />
         </div>

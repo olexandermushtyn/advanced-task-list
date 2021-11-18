@@ -3,18 +3,19 @@ const useSimpleViewStyles = () => {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    border: '1px solid white',
-    padding: '5px',
-    color: 'white',
-    margin: '10px 0px',
+    padding: '10px 10px',
+    color: '#ededed',
     borderRadius: '5px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    fontWeight: 'semi-bold',
   }
 
   const titleStyles = {
+    window: '100%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    cursor: 'pointer',
+    justifyContent: 'flex-start',
   }
 
   return { wrapperStyles, titleStyles }

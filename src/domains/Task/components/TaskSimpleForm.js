@@ -1,49 +1,23 @@
-import { Input, Button } from 'antd'
-import { useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 import nextId from 'react-id-generator'
 import { useStore } from '../../../contexts/TaskListContext/hooks'
-import { useTaskActions } from '../hooks'
 
-const TaskSimpleForm = ({ visible, taskList }) => {
-  const [taskData, setTaskData] = useState({
+const TaskSimpleForm = ({ taskList }) => {
+  const taskData = {
     id: nextId(),
     name: '',
     done: false,
-  })
-  const [inputValue, setInputValue] = useState('')
+  }
 
   const { createTask } = useStore()
 
-  const { onChangeInput, onSubmitButtonClick } = useTaskActions(
-    taskData,
-    setTaskData,
-    taskList,
-    createTask,
-    setInputValue
-  )
-
-  return visible ? (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-      }}>
-      <div style={{ marginRight: '5px' }}>
-        <Input value={inputValue} onChange={onChangeInput} placeholder="Enter task name" />
-      </div>
-      <div>
-        <Button
-          type="primary"
-          shape="circle"
-          icon={<PlusOutlined />}
-          size={'small'}
-          onClick={onSubmitButtonClick}
-        />
-      </div>
+  return (
+    <div>
+      <PlusOutlined
+        style={{ marginRight: '5px', color: '#969094', fontSize: '18px' }}
+        onClick={() => createTask(taskList, taskData)}
+      />
     </div>
-  ) : (
-    <></>
   )
 }
 

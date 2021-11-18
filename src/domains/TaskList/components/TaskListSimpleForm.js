@@ -1,30 +1,22 @@
 import { Button } from 'antd'
 import { PlusCircleOutlined } from '@ant-design/icons'
-import { useState } from 'react'
-import { AddTaskInput } from '.'
+import { useStore } from '../../../contexts/TaskListContext/hooks'
+import nextId from 'react-id-generator'
 
-const TaskListSimpleForm = ({ setTaskLists }) => {
-  const [visible, setVisible] = useState(false)
+const TaskListSimpleForm = () => {
+  const { createTaskList } = useStore()
 
   return (
-    <div>
-      <div>
-        <AddTaskInput visible={visible} setTaskLists={setTaskLists} />
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-start',
-          marginTop: '10px',
-        }}>
-        <Button
-          type="primary"
-          icon={<PlusCircleOutlined />}
-          size={'medium'}
-          onClick={() => setVisible(!visible)}>
-          Add task list
-        </Button>
-      </div>
+    <div style={{ color: '#c8c2c5', display: 'flex', alignItems: 'center' }}>
+      <Button
+        style={{ color: '#c8c2c5' }}
+        type="text"
+        shape="circle"
+        icon={<PlusCircleOutlined />}
+        size="large"
+        onClick={() => createTaskList({ id: nextId(), name: '', tasks: { done: [], notDone: [] } })}
+      />
+      <p style={{ margin: '0px 5px' }}>New list</p>
     </div>
   )
 }

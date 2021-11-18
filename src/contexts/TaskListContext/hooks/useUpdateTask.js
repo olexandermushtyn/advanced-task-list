@@ -1,9 +1,10 @@
 const useUpdateTask = (store, dispatch) => {
   const updateTask = (taskList, task, newTask) => {
+    const collection = task.done ? 'done' : 'notDone'
     const taskListIndex = store.indexOf(taskList)
-    const taskIndex = taskList.tasks.indexOf(task)
+    const taskIndex = taskList.tasks[collection].indexOf(task)
     const storeCopy = [...store]
-    storeCopy[taskListIndex].tasks[taskIndex] = newTask
+    storeCopy[taskListIndex].tasks[collection][taskIndex] = newTask
     dispatch({
       type: 'updateTaskList',
       payload: storeCopy,
