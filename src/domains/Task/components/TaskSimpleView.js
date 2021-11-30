@@ -1,16 +1,15 @@
-import { Radio, Input } from 'antd'
+import { Radio } from 'antd'
 import { useState } from 'react'
 import { TaskSimpleViewBody } from '.'
 import { useStore } from '../../../contexts/TaskListContext/hooks'
 import { useSimpleViewActions } from '../hooks'
 
-const TaskSimpleView = ({ item, parent }) => {
+const TaskSimpleView = ({ item, parent, setCurrentSelectedTask, currentSelectedTask }) => {
   const { updateTask } = useStore()
   const [checked, setChecked] = useState(item.done)
-  const [isEdited, setIsEdited] = useState(false)
   const [editedText, setEditedText] = useState(item.name)
 
-  const { onCheckedChange, onInputTextChange } = useSimpleViewActions(
+  const { onCheckedChange } = useSimpleViewActions(
     checked,
     setChecked,
     updateTask,
@@ -28,11 +27,13 @@ const TaskSimpleView = ({ item, parent }) => {
           paddingBottom: '4px',
         }}>
         <div style={{ marginRight: '5px' }}>
-          <div classNa="round">
+          <div>
             <Radio checked={checked} onClick={onCheckedChange} />
           </div>
         </div>
         <TaskSimpleViewBody
+          currentSelectedTask={currentSelectedTask}
+          setCurrentSelectedTask={setCurrentSelectedTask}
           item={item}
           parent={parent}
           editedText={editedText}

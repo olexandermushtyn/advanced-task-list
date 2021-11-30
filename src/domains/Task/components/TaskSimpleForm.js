@@ -1,10 +1,13 @@
 import { PlusOutlined } from '@ant-design/icons'
 import nextId from 'react-id-generator'
 import { useStore } from '../../../contexts/TaskListContext/hooks'
+import { firestoreService } from '../../../services/firebase'
 
 const TaskSimpleForm = ({ taskList }) => {
+  const { generateId } = firestoreService
+
   const taskData = {
-    id: nextId(),
+    id: generateId('taskLists'),
     name: '',
     done: false,
   }
@@ -13,10 +16,7 @@ const TaskSimpleForm = ({ taskList }) => {
 
   return (
     <div>
-      <PlusOutlined
-        style={{ marginRight: '5px', color: '#969094', fontSize: '18px' }}
-        onClick={() => createTask(taskList, taskData)}
-      />
+      <PlusOutlined style={{ marginRight: '5px', color: '#969094', fontSize: '18px' }} onClick={() => createTask(taskList, taskData)} />
     </div>
   )
 }

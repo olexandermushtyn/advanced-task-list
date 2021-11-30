@@ -1,8 +1,9 @@
 import { List } from '../../../componentns'
 import { TaskListSimpleView, TaskListSimpleForm } from '.'
 import { useTaskListStyles } from '../hooks'
+import { useRef } from 'react'
 
-const TaskList = ({ setCurrentList, taskLists, setTaskLists }) => {
+const TaskList = ({ setCurrentList, taskLists, setTaskLists, currentList }) => {
   const addTask = task => {
     setTaskLists([...taskLists, task])
   }
@@ -23,7 +24,12 @@ const TaskList = ({ setCurrentList, taskLists, setTaskLists }) => {
           <h4 style={{ color: '#8d878a', marginLeft: '10px', marginTop: '10px', marginBottom: '0px' }}>
             My tasks Lists
           </h4>
-          <List collection={taskLists} Item={TaskListSimpleView} setCurrentItem={setCurrentList} />
+          <List
+            collection={taskLists}
+            currentList={currentList}
+            Item={TaskListSimpleView}
+            setCurrentItem={setCurrentList}
+          />
         </div>
         <div>
           <TaskListSimpleForm setTaskLists={addTask} />

@@ -1,10 +1,13 @@
 import { TaskListProvider } from '../../contexts/TaskListContext'
 import { TaskListLayout } from '../../domains/TaskList/components'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const ApplicationLayout = () => {
   return (
     <TaskListProvider>
-      <TaskListLayout />
+      <Router>
+        <TaskListLayout />
+      </Router>
     </TaskListProvider>
   )
 }

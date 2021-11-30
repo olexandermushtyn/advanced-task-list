@@ -2,14 +2,8 @@ import { useReducer } from 'react'
 import { TaskListContext } from '.'
 import reducer from './reducer'
 
-import {
-  useCreateTaskList,
-  useCreateTask,
-  useUpdateTask,
-  useDeleteTask,
-  useDeleteTaskList,
-  useUpdateTaskList,
-} from './hooks'
+import { useCreateTaskList, useCreateTask, useUpdateTask, useDeleteTask, useDeleteTaskList, useUpdateTaskList, fetchDocuments } from './hooks'
+import useFetchDocuments from './hooks/useFetchDocuments'
 
 const TaskListProvider = ({ children }) => {
   const [store, dispatch] = useReducer(reducer, [])
@@ -20,6 +14,7 @@ const TaskListProvider = ({ children }) => {
   const deleteTask = useDeleteTask(store, dispatch)
   const deleteTaskList = useDeleteTaskList(store, dispatch)
   const updateTaskList = useUpdateTaskList(store, dispatch)
+  const fetchDocuments = useFetchDocuments(dispatch)
 
   console.log(store)
 
@@ -33,6 +28,7 @@ const TaskListProvider = ({ children }) => {
         deleteTask,
         deleteTaskList,
         updateTaskList,
+        fetchDocuments,
       }}>
       {children}
     </TaskListContext.Provider>
